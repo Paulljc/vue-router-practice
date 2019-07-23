@@ -14,10 +14,10 @@ const actions = {
     commit('completeItem', payload)
   },
   editItem({dispatch}, payload) {
-    axios.put(`${baseUrl + payload.data.id}`, payload.data.item).then(() => { dispatch('initItems') })
+    axios.put(`${baseUrl + "/" + payload.data.id}`, payload.data.item).then(() => { dispatch('initItems') })
   },
   deleteItem({dispatch}, payload) {
-    axios.delete(`${baseUrl + payload.data.id}`, payload.data).then(() => { dispatch('initItems') })
+    axios.delete(`${baseUrl + "/" + payload.data.id}`, payload.data).then(() => { dispatch('initItems') })
   },
   createNewItem({dispatch}, payload) {
     axios.post(baseUrl, payload.data).then(() => { dispatch('initItems') })
