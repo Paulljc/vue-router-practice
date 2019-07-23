@@ -1,10 +1,15 @@
 <template>
   <div class="home-container">
+    <input type="button" @click="goBack()" value="<< 返回" />
     <div class="container-header">Username : {{$route.params.id}}</div>
     <div class="left-nav">
       <ul>
-        <li><router-link to="/todoList">todoList</router-link></li>
-        <li><router-link to="/myInfo">myInfo</router-link></li>
+        <li>
+          <router-link to="/todoList">todoList</router-link>
+        </li>
+        <li>
+          <router-link to="/myInfo">myInfo</router-link>
+        </li>
       </ul>
     </div>
     <div class="right-nav">
@@ -14,9 +19,19 @@
 </template>
 
 <script>
-  export default {
-    
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    goBack() {
+      var res = confirm("是否返回上一页？？");
+      if (res == true) {
+        window.history.length > 1 ? this.$router.go(-1) : this.$router.push("/welcome");
+      }
+    }
   }
+};
 </script>
 
 <style>
@@ -42,6 +57,6 @@
   float: right;
 }
 ul {
-  list-style: none
+  list-style: none;
 }
 </style>

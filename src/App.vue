@@ -20,12 +20,6 @@ export default {
 </script>
 
 <style scoped>
-.header-nav {
-  position: relative;
-  top: 10px;
-  border: 1px solid;
-  padding: 2px;
-}
 body {
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.4em;
@@ -47,10 +41,5 @@ body {
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
-}
-.todo-wrap {
-  background: #fff;
-  position: relative;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 </style>
