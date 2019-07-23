@@ -16,7 +16,17 @@ const router = new VueRouter({
     },
     {
       path: '/home/:id',
-      component: Home
+      component: Home,
+      children: [
+        {
+          path: '/myInfo',
+          component: Info
+        },
+        {
+          path: '/todoList',
+          component: Index
+        }
+      ]
     }
   ]
 })

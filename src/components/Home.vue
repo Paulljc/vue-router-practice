@@ -2,13 +2,10 @@
   <div class="home-container">
     <div class="container-header">Username : {{$route.params.id}}</div>
     <div class="left-nav">
-      <div>
-        <router-link to="/todoList">todoList</router-link>
-      </div>
-      <div>
-        <router-link to="/myInfo">myInfo</router-link>
-      </div>
-      
+      <ul>
+        <li><router-link to="/todoList">todoList</router-link></li>
+        <li><router-link to="/myInfo">myInfo</router-link></li>
+      </ul>
     </div>
     <div class="right-nav">
       <router-view></router-view>
@@ -43,5 +40,8 @@
   display: inline-block;
   position: relative;
   float: right;
+}
+ul {
+  list-style: none
 }
 </style>
