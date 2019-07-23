@@ -19,7 +19,7 @@ const router = new VueRouter({
       component: Home,
       children: [
         {
-          path: '/myInfo',
+          path: '/myInfo/:id',
           component: Info
         },
         {

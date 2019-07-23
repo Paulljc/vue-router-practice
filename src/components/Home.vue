@@ -1,14 +1,14 @@
 <template>
   <div class="home-container">
     <input type="button" @click="goBack()" value="<< 返回" />
-    <div class="container-header">Username : {{$route.params.id}}</div>
+    <div class="container-header">Username : {{userName}}</div>
     <div class="left-nav">
       <ul>
         <li>
           <router-link to="/todoList">todoList</router-link>
         </li>
         <li>
-          <router-link to="/myInfo">myInfo</router-link>
+          <router-link :to="{path: `/myInfo/${this.userName}`}">myInfo</router-link>
         </li>
       </ul>
     </div>
@@ -21,7 +21,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      userName: this.$route.params.id
+    }
   },
   methods: {
     goBack() {
@@ -29,6 +31,9 @@ export default {
       if (res == true) {
         window.history.length > 1 ? this.$router.go(-1) : this.$router.push("/welcome");
       }
+    },
+    toInfo(){
+      this.$router.push(`/myInfo/${this.userName}`);
     }
   }
 };
@@ -44,12 +49,12 @@ export default {
   position: relative;
   width: 15%;
   height: 85%;
-  padding-top: 100px;
+  padding-top: 76px;
   border: 1px solid black;
   display: inline-block;
 }
 .home-container .right-nav {
-  height: 780px;
+  height: 756px;
   width: 84%;
   border: 1px solid black;
   display: inline-block;
