@@ -6,7 +6,7 @@ import Info from './components/Info.vue'
 import Main from './components/Main.vue'
 
 
-Vue.use(VueRouter); 
+Vue.use(VueRouter);
 
 const router = new VueRouter({
   routes: [
@@ -17,16 +17,14 @@ const router = new VueRouter({
     {
       path: '/home/:id',
       component: Home,
-      children: [
-        {
-          path: '/myInfo/:id',
-          component: Info
-        },
-        {
-          path: '/todoList',
-          component: Index
-        }
-      ]
+      children: [{
+        path: '',
+        component: Index
+      },
+      {
+        path: '/myInfo/:id',
+        component: Info
+      }]
     }
   ]
 })

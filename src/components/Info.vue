@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    My profile {{$route.params.id}}
+    My name is {{$route.params.id}} ......
   </div>
 </template>
 

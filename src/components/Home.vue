@@ -5,7 +5,7 @@
     <div class="left-nav">
       <ul>
         <li>
-          <router-link to="/todoList">todoList</router-link>
+          <router-link :to="{path: `/home/${this.userName}`}">todoList</router-link>
         </li>
         <li>
           <router-link :to="{path: `/myInfo/${this.userName}`}">myInfo</router-link>
@@ -31,9 +31,6 @@ export default {
       if (res == true) {
         window.history.length > 1 ? this.$router.go(-1) : this.$router.push("/welcome");
       }
-    },
-    toInfo(){
-      this.$router.push(`/myInfo/${this.userName}`);
     }
   }
 };
