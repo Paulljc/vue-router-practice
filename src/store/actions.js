@@ -1,13 +1,13 @@
-
+import mutationType from './mutationType'
 import { addTodo, deleteTodo, updateTodo, getTodos } from '../apis/todolist'
 
 const actions = {
   async initItems({commit}) {
     const res = await getTodos();
-    commit('initItems', {data: res.data})
+    commit(mutationType.INIT_ITEMS, {data: res.data})
   },
   completeItem({commit}, payload) {
-    commit('completeItem', payload)
+    commit(mutationType.COMPLETE_ITEM, payload)
   },
   async editItem({dispatch}, payload) {
     await updateTodo(payload.data.id, payload.data.item)
@@ -22,7 +22,7 @@ const actions = {
     dispatch('initItems')
   },
   changeCategory({commit}, payload) {
-    commit('changeCategory', payload)
+    commit(mutationType.CHANGE_CATEGORY, payload)
   }
 }
 
