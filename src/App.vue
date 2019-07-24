@@ -1,14 +1,8 @@
 <template>
 <div class="todo-container">
-
-    <div class="routerlink">
-      <router-link to="/welcome">Into Welcome Page</router-link>
-    </div>
-
     <div class="routercontent">
       <router-view></router-view>
     </div>
-
   </div>
 </template>
 
@@ -43,6 +37,8 @@ body {
   text-rendering: optimizeLegibility;
 }
 .routercontent{
-  padding-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
