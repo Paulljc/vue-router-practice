@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Index from '../views/ToDoList/Index.vue'
 import Home from '../views/Home/Home.vue'
-import Home1 from '../views/Home/Home1.vue'
 import Info from '../views/Info/Info.vue'
 import Main from '../views/Main/Main.vue'
 
@@ -17,7 +16,7 @@ const router = new VueRouter({
     },
     {
       path: '/home/:id',
-      component: Home1,
+      component: Home,
       children: [{
         path: '',
         component: Index

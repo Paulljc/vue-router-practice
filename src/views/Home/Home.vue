@@ -1,27 +1,48 @@
 <template>
-  <div class="home-container">
-    <input type="button" @click="goBack()" value="<< 返回" />
-    <div class="container-header">Username : {{userName}}</div>
-    <div class="left-nav">
-      <ul>
-        <li>
-          <router-link :to="{path: `/home/${this.userName}`}">todoList</router-link>
-        </li>
-        <li>
-          <router-link :to="{path: `/myInfo/${this.userName}`}">myInfo</router-link>
-        </li>
-      </ul>
-    </div>
-    <div class="right-nav">
-      <router-view></router-view>
-    </div>
-  </div>
+  <a-layout id="components-layout-demo-custom-trigger">
+    <a-layout-sider
+      :trigger="null"
+      collapsible
+      v-model="collapsed"
+    >
+      <a-button type='primary' @click="goBack()" class="logo" size="small">返回</a-button>
+      <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['1']">
+        <a-menu-item key="1">
+          <router-link :to="{path: `/home/${this.userName}`}">
+            <a-icon type="ordered-list" />
+            <span>TodoList</span>
+          </router-link>
+        </a-menu-item>
+        <a-menu-item key="2">
+          <router-link :to="{path: `/myInfo/${this.userName}`}">
+            <a-icon type="user" />
+            <span>MyProfile</span>
+          </router-link>
+        </a-menu-item>
+      </a-menu>
+    </a-layout-sider>
+    <a-layout>
+      <a-layout-header style="background: #fff; padding: 0">
+        <a-icon
+          class="trigger"
+          :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+          @click="()=> collapsed = !collapsed"
+        />
+        <span class="username">
+          <a-icon type="user" />
+          Hi,  {{userName}}</span>
+      </a-layout-header>
+      <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '840px' }">
+        <router-view></router-view>
+      </a-layout-content>
+    </a-layout>
+  </a-layout>
 </template>
-
 <script>
 export default {
-  data() {
+  data(){
     return {
+      collapsed: false,
       userName: this.$route.params.id
     }
   },
@@ -33,32 +54,28 @@ export default {
       }
     }
   }
-};
+}
 </script>
-
 <style>
-.home-container {
-  border: 1px solid black;
-  width: 100%;
-  height: 800px;
+#components-layout-demo-custom-trigger .trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color .3s;
 }
-.home-container .left-nav {
-  position: relative;
-  width: 15%;
-  height: 85%;
-  padding-top: 76px;
-  border: 1px solid black;
-  display: inline-block;
+
+#components-layout-demo-custom-trigger .trigger:hover {
+  color: #1890ff;
 }
-.home-container .right-nav {
-  height: 756px;
-  width: 84%;
-  border: 1px solid black;
-  display: inline-block;
-  position: relative;
+
+#components-layout-demo-custom-trigger .logo {
+  height: 32px;
+  background: rgba(255,255,255,.2);
+  margin: 16px;
+}
+.username{
   float: right;
-}
-ul {
-  list-style: none;
+  padding-right: 40px;
 }
 </style>
