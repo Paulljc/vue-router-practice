@@ -24,6 +24,10 @@ const router = new VueRouter({
       {
         path: '/myInfo/:id',
         component: Info
+      },
+      {
+        path: '/home/:id?',
+        redirect: '/home/none'
       }]
     }
   ]

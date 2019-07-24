@@ -9,8 +9,7 @@
 export default {
   methods: {
     welcomeUser() {
-      let name = this.$refs.userInput.value;
-      this.$router.push("/home/" + name);
+      this.$router.push(`/home/${this.$refs.userInput.value}`);
     }
   }
 };
