@@ -89,17 +89,17 @@
     }
     .content-checkbox {
       &:after {
-        content url("../assets/img/checkbox.svg")
+        content url("../../assets/img/checkbox.svg")
         @media screen and (max-width 767px) {
-          content url("../assets/img/sm_checkbox.svg")
+          content url("../../assets/img/sm_checkbox.svg")
         }
       }
       &:checked {
         background white !important
         &:after {
-          content: url("../assets/img/checkbox_checked.svg")
+          content: url("../../assets/img/checkbox_checked.svg")
           @media screen and (max-width 767px) {
-            content url("../assets/img/sm_checkbox_checked.svg")
+            content url("../../assets/img/sm_checkbox_checked.svg")
           }
         }
       }

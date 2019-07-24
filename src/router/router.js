@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Index from '../components/Index.vue'
-import Home from '../components/Home.vue'
-import Info from '../components/Info.vue'
-import Main from '../components/Main.vue'
+import Index from '../views/ToDoList/Index.vue'
+import Home from '../views/Home/Home.vue'
+import Info from '../views/Info/Info.vue'
+import Main from '../views/Main/Main.vue'
 
 
 Vue.use(VueRouter);

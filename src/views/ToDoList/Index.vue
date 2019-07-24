@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import ContentInput from "./ContentInput.vue";
-import ContentList from "./ContentList.vue";
-import ContentFilter from "./ContentFilter.vue";
+import ContentInput from "../../components/ToDoList/ContentInput";
+import ContentList from "../../components/ToDoList/ContentList.vue";
+import ContentFilter from "../../components/ToDoList/ContentFilter.vue";
 import { mapGetters, mapState } from 'vuex'
 
 export default {
