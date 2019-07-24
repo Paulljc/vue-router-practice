@@ -1,26 +1,25 @@
 
-import axios from "axios";
-
-const baseUrl = "http://localhost:3001/todos"
+import { addTodo, deleteTodo, updateTodo, getTodos } from '../apis/todolist'
 
 const actions = {
-  initItems({commit}) {
-    axios.get(baseUrl)
-    .then( function(res) {
-      commit('initItems', {data: res.data})
-    })
+  async initItems({commit}) {
+    const res = await getTodos();
+    commit('initItems', {data: res.data})
   },
   completeItem({commit}, payload) {
     commit('completeItem', payload)
   },
-  editItem({dispatch}, payload) {
-    axios.put(`${baseUrl + "/" + payload.data.id}`, payload.data.item).then(() => { dispatch('initItems') })
+  async editItem({dispatch}, payload) {
+    await updateTodo(payload.data.id, payload.data.item)
+    dispatch('initItems')
   },
-  deleteItem({dispatch}, payload) {
-    axios.delete(`${baseUrl + "/" + payload.data.id}`, payload.data).then(() => { dispatch('initItems') })
+  async deleteItem({dispatch}, payload) {
+    await deleteTodo(payload.data.id)
+    dispatch('initItems')
   },
-  createNewItem({dispatch}, payload) {
-    axios.post(baseUrl, payload.data).then(() => { dispatch('initItems') })
+  async createNewItem({dispatch}, payload) {
+    await addTodo(payload.data)
+    dispatch('initItems')
   },
   changeCategory({commit}, payload) {
     commit('changeCategory', payload)
